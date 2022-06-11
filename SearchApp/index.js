@@ -39,13 +39,12 @@ app.get('/person', (req, res, next) => {
 });
 
 app.post('/search', (req, res, next) => {
-  console.log(req.body);
-  /*var post_data = req.body; //GET POST BODY
-  var name_search = post_data.search;*/
+  var post_data = req.body; //GET POST BODY
+  var name_search = post_data.search;
 
   var query = "SELECT * FROM person WHERE name LIKE '%" + name_search + "%'";
 
-  /*con.query(query, function (error, result, fields) {
+  con.query(query, function (error, result, fields) {
     con.on('error', function (err) {
       console.log('[MSQL] ERROR', err);
     });
@@ -54,7 +53,7 @@ app.post('/search', (req, res, next) => {
     } else {
       res.end(JSON.stringify('No person here'));
     }
-  });*/
+  });
 });
 
 //Start Server
